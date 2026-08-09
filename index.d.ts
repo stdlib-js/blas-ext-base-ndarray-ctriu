@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2026 The Stdlib Authors.
@@ -16,17 +16,29 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
+
+import { complex64ndarray, typedndarray } from '@stdlib/types/ndarray';
 
 /**
-* Copy the upper triangular part of a single-precision complex floating-point matrix `A` to another matrix `B`.
+* Copies the upper triangular part of a single-precision complex floating-point matrix `A` to another matrix `B`.
 *
-* @module @stdlib/blas-ext-base-ndarray-ctriu
+* ## Notes
+*
+* -   The function expects the following ndarrays:
+*
+*     -   a two-dimensional input ndarray corresponding to `A`.
+*     -   a two-dimensional output ndarray corresponding to `B`.
+*     -   a zero-dimensional ndarray specifying the diagonal below which to ignore.
+*
+* @param arrays - array-like object containing ndarrays
+* @returns output ndarray
 *
 * @example
 * var Complex64Matrix = require( '@stdlib/ndarray-matrix-complex64' );
 * var scalar2ndarray = require( '@stdlib/ndarray-from-scalar' );
-* var ctriu = require( '@stdlib/blas-ext-base-ndarray-ctriu' );
 *
 * var A = new Complex64Matrix( [ [ 1.0, 2.0, 3.0, 4.0 ], [ 5.0, 6.0, 7.0, 8.0 ] ] );
 * var B = new Complex64Matrix( [ [ 0.0, 0.0, 0.0, 0.0 ], [ 0.0, 0.0, 0.0, 0.0 ] ] );
@@ -41,12 +53,9 @@
 * var bool = ( out === B );
 * // returns true
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function ctriu( arrays: [ complex64ndarray, complex64ndarray, typedndarray<number> ] ): complex64ndarray;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = ctriu;
